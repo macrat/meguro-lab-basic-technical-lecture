@@ -26,7 +26,7 @@
 
 目黒研 4年 / LinuxClub
 
-- mail: [m@crat.jp](mailto:m@crat.jp)
 - slack: @macrat
-- twitter: [@mac2rat](https://twitter.com/mac2rat)
+- mail: [m@crat.jp](mailto:m@crat.jp)
+- twitter: [@macrat\_jp](https://twitter.com/macrat_jp)
 - HP: [blanktar](https://blanktar.jp)
