@@ -2,4 +2,25 @@
 
 要件を決めて、プロトタイプを作って動かすまでのざっくりした流れ。
 
-まだ書いていません。
+詳細な資料はまだ書いていません、ごめんなさい。
+添付してある[スライド](slide.pdf)をご覧ください。
+
+## 紹介したツール
+
+### POP
+手書きのデザインをスマホで撮って、動かせるようにするやつ。
+
+- [公式サイト](https://marvelapp.com/pop/)
+- [プレゼン中再生した動画](https://www.youtube.com/watch?v=EGp20lVwUa8)
+
+### moqups
+サイトやアプリのデザインを作ったり動かしたり出来るようにするもの。
+所謂 **ワイヤーフレームツール** というものの一種。
+
+- [サイト](https://moqups.com/)
+
+### Android Studio
+Androidアプリを作るためのgoogle公式IDE。
+紹介したのはこのソフトのデザインツールの部分。
+
+- [公式サイト](https://developer.android.com/studio/index.html?hl=ja)
