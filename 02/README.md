@@ -32,4 +32,4 @@ Androidアプリを作るためのgoogle公式IDE。
 
 ### Webサイト
 [live-coding/web.html](./live-coding/web.html)にあります。
-ブラウザでどう表示されるか見たい場合は[こちら](https://cdn.rawgit.com/macrat/meguro-lab-basic-technical-lecture/9c283623/02/live-coding/web.html)から見れます。もちろん、HTMLファイルをダウンロードして開くことも出来ます。
+ブラウザでどう表示されるか見たい場合は[こちら](https://cdn.rawgit.com/macrat/meguro-lab-basic-technical-lecture/HEAD/02/live-coding/web.html)から見れます。もちろん、HTMLファイルをダウンロードして開くことも出来ます。
