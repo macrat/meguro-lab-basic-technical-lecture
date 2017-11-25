@@ -24,3 +24,12 @@ Androidアプリを作るためのgoogle公式IDE。
 紹介したのはこのソフトのデザインツールの部分。
 
 - [公式サイト](https://developer.android.com/studio/index.html?hl=ja)
+
+## デモで作成したもの
+### Androidアプリ
+[live-coding/android](./live-coding/android/)から見れます。
+[まとめてダウンロード](https://github.com/macrat/meguro-lab-basic-technical-lecture/archive/master.zip)して[Android Studio](https://developer.android.com/studio/index.html?hl=ja)で試すことも出来ます。
+
+### Webサイト
+[live-coding/web.html](./live-coding/web.html)にあります。
+ブラウザでどう表示されるか見たい場合は[こちら](https://cdn.rawgit.com/macrat/meguro-lab-basic-technical-lecture/9c283623/02/live-coding/web.html)から見れます。もちろん、HTMLファイルをダウンロードして開くことも出来ます。
