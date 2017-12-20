@@ -51,7 +51,7 @@ print(lr.coef_, lr.intercept_)
 
 
 lr = LinearRegression()
-lr.fit(data.drop(['TARGET'], axis=1), data[['TARGET']])
+lr.fit(data.apply(lambda x: (x - x.min()) / (x.max() - x.min())).drop(['TARGET'], axis=1), data[['TARGET']])
 print(pandas.DataFrame(lr.coef_, columns=data.drop(['TARGET'], axis=1).columns))
 print(lr.intercept_)
 
@@ -74,3 +74,18 @@ plt.ylim([-1.5, 1.5])
 plt.pcolormesh(xx, yy, svm.predict(numpy.c_[xx.ravel(), yy.ravel()]).reshape(xx.shape), cmap=plt.cm.tab10, alpha=0.1)
 plt.scatter(x=pca['dim1'], y=pca['dim2'], c=iris.target, cmap=plt.cm.tab10, s=80, alpha=0.9, edgecolors='k')
 plt.savefig('svm-classified.png')
+
+
+plt.figure(figsize=[10, 8])
+data.describe().T.plot.bar(y='mean', yerr='std', color='gray', legend=False)
+plt.savefig('mean-bars.png')
+
+
+plt.figure(figsize=[10, 8])
+data.apply(lambda x: (x - x.min()) / (x.max() - x.min())).describe().T.plot.bar(y='mean', yerr='std', color='gray', legend=False)
+plt.savefig('maximin-normalized-bars.png')
+
+
+plt.figure(figsize=[10, 8])
+data.apply(lambda x: (x - x.mean()) / x.std()).describe().T.plot.bar(y='mean', yerr='std', color='gray', legend=False)
+plt.savefig('meanstd-normalized-bars.png')
