@@ -14,9 +14,9 @@ data['TARGET'] = raw.target
 data = data.drop(['ZN', 'INDUS', 'RAD', 'PTRATIO', 'CHAS'], axis=1)
 
 
-#plt.figure(figsize=[10, 8])
-#pandas.plotting.scatter_matrix(data, color='k', diagonal='kde', alpha=0.3)
-#plt.savefig('scatter-matrix.png', dpi=150)
+plt.figure(figsize=[10, 8])
+pandas.plotting.scatter_matrix(data, color='k', diagonal='kde', alpha=0.3)
+plt.savefig('scatter-matrix.png', dpi=150)
 
 
 import seaborn

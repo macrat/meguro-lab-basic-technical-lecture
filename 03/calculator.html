@@ -1,0 +1,110 @@
+<title>標本数の計算</title>
+<meta name="viewport" content="width=device-width">
+<style>
+body {
+	margin: 2em;
+}
+
+.hint {
+	color: gray;
+}
+
+table {
+	border-spacing: 0;
+}
+table tr {
+	background-color: #f0f0f0;
+}
+table tr:nth-child(even) {
+	background-color: #e0e0e0;
+}
+td, th {
+	padding: .3em .5em;
+}
+
+div {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+section {
+	border: 1px solid gray;
+	padding: .5em;
+	margin: .5em;
+}
+</style>
+
+<script src="https://unpkg.com/vue"></script>
+
+<main id=app>
+	<p><label>
+		回答比率: <input type=number min=0 max=100 v-model.number=rate>%<br>
+		<span class=hint>予想される回答の割合です。分からなければ50%にしてください。</span>
+	</label></p>
+
+	<div>
+		<section>
+			<p><label>
+				標本誤差: <input type=number min=0 max=100 v-model.number=error>%<br>
+				<span class=hint>許容する誤差の割合です。一般的には5%が使われるようです。</span>
+			</label></p>
+
+			<p><table>
+				<tr><th>標本数</th><td :rowspan="results.length + 1">人集めれば</td><th>信頼水準</th><td :rowspan="results.length + 1">の確率で{{ Math.max(0, rate - error) }}% 〜 {{ Math.min(100, rate + error) }}%と言える</td></tr>
+				<tr v-for="result in results">
+					<td>{{ result.num_str }}</td><td>{{ result.probably * 100 }}%</td>
+				</tr>
+			</table></p>
+		</section>
+
+		<section>
+			<p><label>
+				標本数: <input type=number min=0 v-model.number=num><br>
+				<span class=hint>得られた有効回答数です。</span>
+
+				<p><table>
+					<tr><th>信頼水準</th><td :rowspan="results.length + 1">の確率で</td><th>信頼区間</th><td :rowspan="results.length + 1">と言える。標本誤差は</td><th>標本誤差</th></tr>
+
+					<tr v-for="result in results">
+						<td>{{ result.probably * 100 }}%</td><td>{{ Math.round(Math.max(0, rate - result.error * 100) * 100) / 100 }}% 〜 {{ Math.round(Math.min(100, rate + result.error * 100) * 100) / 100 }}%</td><td>{{ result.error_str }}%</td>
+					</tr>
+				</table></p>
+			</label></p>
+		</section>
+	</div>
+</main>
+
+<script>
+const stdtable = [
+	[0.99, 5.00],
+	[0.95, 1.96],
+	[0.90, 1.65],
+	[0.85, 1.44],
+	[0.80, 1.28],
+];
+
+const vm = new Vue({
+	el: '#app',
+	data: {
+		rate: 50,
+		error: 5,
+		num: 100,
+	},
+	computed: {
+		results() {
+			return stdtable.map(x => {
+				const rate = this.rate / 100;
+				const num = Math.pow(x[1], 2) * rate * (1 - rate) / Math.pow((this.error/100), 2);
+				const error = Math.sqrt(Math.pow(x[1], 2) * rate * (1 - rate) / this.num);
+				return {
+					probably: x[0],
+					num: num,
+					num_str: String(Math.round(num * 100) / 100).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,'),
+					error: error,
+					error_str: String(Math.round(error * 10000) / 100).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1,'),
+				}
+			});
+		},
+	},
+});
+</script>

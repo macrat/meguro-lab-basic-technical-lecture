@@ -20,9 +20,11 @@
 	標本数の計算の上で登場する言葉の解説がわりと分かりやすい。
 
 ## おまけ
-- [標本数の計算](https://goo.gl/nXv99q)
+- [標本数の計算](https://rawgit.com/macrat/meguro-lab-basic-technical-lecture/master/03/calculator.html)
 
 	標本数を計算するツール。講師の自作。本当に正しいのかどうかは分からない。
+
+	一応[ソース](./calculator.html)も見れるよ。
 
 - [スライドで使ったグラフやデータを生成するコード](./gen-graph.py)
 
